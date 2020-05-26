@@ -44,7 +44,7 @@ class UsersRepository implements IUsersRepository {
     })
 
     if(user){
-      await this.ormRepository.delete(user);
+      await this.ormRepository.remove(user);
     }
    
   }

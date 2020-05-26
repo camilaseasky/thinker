@@ -1,6 +1,6 @@
 import FakePostsRepository from '../repositories/fakes/FakePostsRepository';
 import DeletePostService from './DeletePostService';
-import Post from '@modules/posts/infra/typeorm/entities/Post'
+import AppError from '@shared/errors/AppError';
 
 let fakePostsRepository: FakePostsRepository;
 

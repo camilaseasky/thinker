@@ -6,6 +6,12 @@ import Post from '@modules/posts/infra/typeorm/entities/Post';
 class FakePostsRepository implements IPostRepository {
   private posts: Post[] = [];
 
+  public async findTimeLinePosts(): Promise<Post[]> {
+    const posts = this.posts;
+
+    return posts;
+  }
+
   public async findById(post_id: string): Promise<Post | undefined> {
     const foundPost = this.posts.find(post => post.id === post_id);
 
@@ -32,9 +38,9 @@ class FakePostsRepository implements IPostRepository {
   }
 
   public async delete(post_id: string): Promise<void> {
-    const indexOfUser = this.posts.findIndex(p => p.id === post_id);
+    const indexOfPost = this.posts.findIndex(p => p.id === post_id);
 
-    this.posts.splice(indexOfUser, 1);
+    this.posts.splice(indexOfPost, 1);
 
     
   }

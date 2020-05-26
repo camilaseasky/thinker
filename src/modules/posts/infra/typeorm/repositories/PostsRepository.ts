@@ -1,4 +1,4 @@
-import { getRepository, Repository, Not } from 'typeorm';
+import { getRepository, Repository} from 'typeorm';
 
 import ICreatePostDTO from '@modules/posts/dtos/ICreatePostDTO';
 import IPostsRepository from '@modules/posts/repositories/IPostsRepository';
@@ -9,6 +9,18 @@ class PostsRepository implements IPostsRepository {
 
   constructor() {
     this.ormRepository = getRepository(Post);
+  }
+
+  public async findTimeLinePosts(): Promise<Post[]> {
+    const posts = await this.ormRepository.find({
+        order: {
+          date: "DESC",
+      },
+      relations: ['user'],
+      
+    })
+
+    return posts;
   }
 
   public async findById(post_id: string): Promise<Post | undefined> {
@@ -39,7 +51,7 @@ class PostsRepository implements IPostsRepository {
     })
 
     if(post){
-      await this.ormRepository.delete(post);
+      await this.ormRepository.remove(post);
     }
    
   }

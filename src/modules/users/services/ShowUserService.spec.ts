@@ -1,6 +1,7 @@
 import FakeUsersRepository from '../repositories/fakes/FakeUsersRepository';
 import ShowUserService from './ShowUserService';
 import User from '../infra/typeorm/entities/User';
+import AppError from '@shared/errors/AppError';
 
 let fakeUsersRepository: FakeUsersRepository;
 
@@ -33,7 +34,7 @@ describe('ShowUser', () => {
     
     await expect(
       showUserService.execute('non-existing-user')
-    ).rejects.toBeInstanceOf(Error);
+    ).rejects.toBeInstanceOf(AppError);
     
   });
 });

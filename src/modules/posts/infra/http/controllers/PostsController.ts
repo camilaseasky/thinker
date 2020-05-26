@@ -6,8 +6,20 @@ import CreatePostService from '@modules/posts/services/CreatePostService';
 import ShowPostService from '@modules/posts/services/ShowPostService';
 import UpdatePostService from '@modules/posts/services/UpdatePostService';
 import DeletePostService from '@modules/posts/services/DeletePostService';
+import ListTimeLinePostsService from '@modules/posts/services/ListTimeLinePostsService';
 
 export default class PostsController {
+
+  public async index(request: Request, response: Response): Promise<Response> {
+    const listTimeLinePostsService = container.resolve(ListTimeLinePostsService);
+
+    const listTimeLinePosts = await listTimeLinePostsService.execute();
+
+    return response.json(listTimeLinePosts);
+
+  }
+   
+
   public async create(request: Request, response: Response): Promise<Response> {
       const { content, date } = request.body;
       const user_id = request.user.id;
@@ -31,6 +43,7 @@ export default class PostsController {
 
     const post = await showPost.execute(post_id);
 
+    delete post?.user.password;
 
     return response.json(post);
   }
@@ -60,7 +73,7 @@ export default class PostsController {
       const deletePost = container.resolve(DeletePostService);
       await deletePost.execute(post_id, user_id);
       
-    return response.status(200);
+      return response.status(204).send()
         
   }
  

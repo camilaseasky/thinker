@@ -1,6 +1,6 @@
 import FakeUsersRepository from '../repositories/fakes/FakeUsersRepository';
 import DeleteUserService from './DeleteUserService';
-import User from '../infra/typeorm/entities/User';
+import AppError from '@shared/errors/AppError';
 
 let fakeUsersRepository: FakeUsersRepository;
 
@@ -33,7 +33,7 @@ describe('DeleteUser', () => {
   it('Should not be able to delete a non-existing user', async () => {
     
     await expect(deleteUserService.execute('non-existing-user'))
-    .rejects.toBeInstanceOf(Error);
+    .rejects.toBeInstanceOf(AppError);
     
   });
 });
