@@ -7,7 +7,7 @@ class FakePostsRepository implements IPostRepository {
   private posts: Post[] = [];
 
   public async findTimeLinePosts(): Promise<Post[]> {
-    const posts = this.posts;
+    const posts = this.posts.sort((a,b) => (a.date < b.date ? 1 : -1))
 
     return posts;
   }
