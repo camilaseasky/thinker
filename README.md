@@ -42,6 +42,7 @@ da mais nova para a mais antiga.
  - [X]  Dependecy Inversion (SOLID - Principles)
  - [X]  Injeção automática de dependências
  - [X]  DDD (Domain Driven Design)
+ - [X]  TDD (Test Driven Development)
  
  :heart_eyes::heart_eyes::heart_eyes::heart_eyes::heart_eyes::heart_eyes:
  
