@@ -45,3 +45,9 @@ da mais nova para a mais antiga.
  
  :heart_eyes::heart_eyes::heart_eyes::heart_eyes::heart_eyes::heart_eyes:
  
+ 
+ ## :star: Aprendizado: foi mais uma oportunidade de colocar em prática todas as tecnologias e padrões que tenho aprendido nos últimos meses.
+ 
+ 
+ 
+ 
