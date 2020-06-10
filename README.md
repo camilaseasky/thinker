@@ -1,5 +1,5 @@
 
-<img src="https://github.com/camilaseasky/thinker/blob/master/imgs/main.jpg"
+<img src="https://github.com/camilaseasky/thinker/blob/master/imgs/main.jpg"/>
 
 # Thinker
 
